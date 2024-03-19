@@ -77,6 +77,7 @@ export type Database = {
           created_at: string
           id: number
           id_dematerialise: number | null
+          id_film: number | null
           id_platforme: number | null
           prix: number | null
           url: string | null
@@ -86,6 +87,7 @@ export type Database = {
           created_at?: string
           id?: number
           id_dematerialise?: number | null
+          id_film?: number | null
           id_platforme?: number | null
           prix?: number | null
           url?: string | null
@@ -95,6 +97,7 @@ export type Database = {
           created_at?: string
           id?: number
           id_dematerialise?: number | null
+          id_film?: number | null
           id_platforme?: number | null
           prix?: number | null
           url?: string | null
@@ -108,43 +111,59 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "public_DematerialisePlateforme_id_film_fkey"
+            columns: ["id_film"]
+            isOneToOne: false
+            referencedRelation: "FILM"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "public_DematerialisePlateforme_id_platforme_fkey"
             columns: ["id_platforme"]
             isOneToOne: false
-            referencedRelation: "PLATFORME"
+            referencedRelation: "PLATEFORME"
             referencedColumns: ["id"]
           },
         ]
       }
       FILM: {
         Row: {
+          bg_image: string | null
           created_at: string
           DateSortie: string | null
           Durée: string | null
           id: number
+          intro: string | null
           LangueOriginale: string | null
+          Note: number | null
           Nouveauté: boolean | null
           Synopsis: string | null
           Titre: string | null
           url_images: string | null
         }
         Insert: {
+          bg_image?: string | null
           created_at?: string
           DateSortie?: string | null
           Durée?: string | null
           id?: number
+          intro?: string | null
           LangueOriginale?: string | null
+          Note?: number | null
           Nouveauté?: boolean | null
           Synopsis?: string | null
           Titre?: string | null
           url_images?: string | null
         }
         Update: {
+          bg_image?: string | null
           created_at?: string
           DateSortie?: string | null
           Durée?: string | null
           id?: number
+          intro?: string | null
           LangueOriginale?: string | null
+          Note?: number | null
           Nouveauté?: boolean | null
           Synopsis?: string | null
           Titre?: string | null
@@ -406,7 +425,7 @@ export type Database = {
           },
         ]
       }
-      PLATFORME: {
+      PLATEFORME: {
         Row: {
           created_at: string
           Details: string | null
