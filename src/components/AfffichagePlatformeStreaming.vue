@@ -11,13 +11,13 @@ console.log(PlatformeStreaming)
 </script>
 <template>
   <div>
-    <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme">
+    <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme ?? undefined">
       <div v-if="nPlatforme.PLATEFORME">
-        <a :href="nPlatforme.url" target="_blank">
+        <a :href="nPlatforme.url ?? undefined" target="_blank">
         <p>{{ nPlatforme.PLATEFORME!.NomPlateforme }}</p>
         <img
-          :src="nPlatforme.PLATEFORME!.ImagePlatforme"
-          :alt="nPlatforme.PLATEFORME!.NomPlateforme"
+          :src="nPlatforme.PLATEFORME!.ImagePlatforme ?? undefined"
+          :alt="nPlatforme.PLATEFORME!.NomPlateforme ?? undefined"
         />
         </a>
       </div>

@@ -16,7 +16,7 @@ if (ErrorPlatformeStreaming) {
 <template>
   <h2>Regarder {{ PlatformeStreaming![0]!.FILM!.Titre }}</h2>
   <div>
-    <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme">
+    <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme ?? undefined">
       <div v-if="nPlatforme.PLATEFORME">
         <a :href="nPlatforme.url ?? undefined" target="_blank">
           <div>

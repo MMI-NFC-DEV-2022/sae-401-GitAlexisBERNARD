@@ -375,6 +375,7 @@ export type Database = {
       PHYSIQUE: {
         Row: {
           AspectRatio: string | null
+          codec: string | null
           created_at: string
           Doublage: string | null
           id: number
@@ -389,6 +390,7 @@ export type Database = {
         }
         Insert: {
           AspectRatio?: string | null
+          codec?: string | null
           created_at?: string
           Doublage?: string | null
           id?: number
@@ -403,6 +405,7 @@ export type Database = {
         }
         Update: {
           AspectRatio?: string | null
+          codec?: string | null
           created_at?: string
           Doublage?: string | null
           id?: number
