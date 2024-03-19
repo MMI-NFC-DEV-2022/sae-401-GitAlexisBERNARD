@@ -1,0 +1,28 @@
+# SAE401 - Alexis BERNARD
+
+Bienvenue sur la page du projet pour le cours SAE401. Ce document contient toutes les informations essentielles pour accéder aux différentes ressources du projet.
+
+## Informations Générales
+
+- **Étudiant:** Alexis BERNARD
+- **Cours:** SAE401
+
+## Ressources du Projet
+
+### Site Web
+
+L'URL du site pour accéder au projet est disponible ci-dessous:
+
+- [Accéder au site](URL_DU_SITE)
+
+### Base de Données Supabase
+
+Pour voir les types et structures utilisés dans la base de données Supabase, suivez le lien suivant:
+
+- [Types Supabase](LIEN_VERS_LES_TYPES_SUPABASE)
+
+### Design sur Figma
+
+Le design et les maquettes du projet ont été réalisés sur Figma. Vous pouvez les consulter via le lien ci-dessous:
+
+- [Voir le design sur Figma](https://www.figma.com/file/Mkb7jmillHprRNexw6cSv6/Maquettes-site-film-SAE-401?type=design&node-id=1%3A23&mode=design&t=JM7dyhTr5n4cKhUp-1)
