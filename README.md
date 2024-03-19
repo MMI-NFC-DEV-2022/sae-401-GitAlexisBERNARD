@@ -14,12 +14,14 @@ Bienvenue sur la page du projet pour le cours SAE401. Ce document contient toute
 L'URL du site pour accéder au projet est disponible ci-dessous:
 
 - [Accéder au site](URL_DU_SITE)
+- [Backup](https://sae401-alexisbernard.netlify.app/)
+
 
 ### Base de Données Supabase
 
 Pour voir les types et structures utilisés dans la base de données Supabase, suivez le lien suivant:
 
-- [Types Supabase](LIEN_VERS_LES_TYPES_SUPABASE)
+- [Types Supabase](https://github.com/MMI-NFC-DEV-2022/sae-401-GitAlexisBERNARD/blob/main/src/types.ts)
 
 ### Design sur Figma
 
