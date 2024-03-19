@@ -53,6 +53,14 @@ function formatYear(dateString: string): number {
     <div>
       <h2>Où regarder</h2>
       <PlatformeStreaming :id_film="UnFilm.id" />
+      <RouterLink
+          :to="{
+            name: 'films-dematerialise-id',
+            params: { id: UnFilm.id }
+          }"
+        >
+      <button>Voir toutes les offres</button>
+      </RouterLink>
     </div>
   </div>
 </template>

@@ -73,7 +73,7 @@ export type Database = {
       }
       DematerialisePlateforme: {
         Row: {
-          "abonnement ": boolean | null
+          abonnement: boolean | null
           created_at: string
           id: number
           id_dematerialise: number | null
@@ -83,7 +83,7 @@ export type Database = {
           url: string | null
         }
         Insert: {
-          "abonnement "?: boolean | null
+          abonnement?: boolean | null
           created_at?: string
           id?: number
           id_dematerialise?: number | null
@@ -93,7 +93,7 @@ export type Database = {
           url?: string | null
         }
         Update: {
-          "abonnement "?: boolean | null
+          abonnement?: boolean | null
           created_at?: string
           id?: number
           id_dematerialise?: number | null
