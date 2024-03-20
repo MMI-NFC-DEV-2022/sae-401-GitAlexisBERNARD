@@ -16,7 +16,7 @@ console.log(ActeurUnFilm)
       <li
         v-for="UnActeur in ActeurUnFilm"
         :key="UnActeur.id_acteur ?? undefined"
-        class="snap-start w-[40vw]"
+        class="snap-start w-[40vw] rounded-xl"
       >
         <RouterLink
           :to="{

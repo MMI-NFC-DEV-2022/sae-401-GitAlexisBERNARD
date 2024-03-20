@@ -11,13 +11,9 @@ const { data: UnFilmActeur, error: ErrorUnFilmActeur } = await supabase
 console.log(UnFilmActeur)
 </script>
 <template>
-  <div class="flex w-[100%] overflow-hidden">
-    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth overflow-x-auto">
-      <li
-        v-for="UnFilm in UnFilmActeur"
-        :key="UnFilm.id_film ?? undefined"
-        class="snap-start"
-      >
+  <div class="flex overflow-auto ml-5">
+    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3">
+      <li v-for="UnFilm in UnFilmActeur" :key="UnFilm.id_film ?? undefined" class="snap-start">
         <RouterLink
           :to="{
             name: 'films-acteur-id',
@@ -28,7 +24,7 @@ console.log(UnFilmActeur)
           <img
             :src="UnFilm.FILM!.url_images ?? undefined"
             :alt="UnFilm.FILM!.Titre ?? undefined"
-            class="rounded-xl"
+            class="snap-start w-[40vw] rounded-xl"
           />
           <p class="font-Spline font-medium text-center text-[16px]">
             {{ UnFilm.FILM!.Titre }}

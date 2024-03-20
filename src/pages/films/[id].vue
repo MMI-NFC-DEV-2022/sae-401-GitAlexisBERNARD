@@ -4,7 +4,10 @@ import CarrouselActeurUnFilm from '@/components/CarrouselActeurUnFilm.vue'
 import CarrouselRealisation from '@/components/CarrouselRealisation.vue'
 import Clock from '@/components/icons/clock.vue'
 import Favori from '@/components/icons/Favori.vue'
-import { supabase } from '@/supabase'
+import { supabase, user } from '@/supabase'
+import { ref } from 'vue'
+const favori = ref()
+const userinfo = ref()
 const UnFilm = defineProps<{
   id: string
 }>()
@@ -36,9 +39,49 @@ if (ErrorFilmPhysique) {
 }
 console.log(FilmPhysique)
 
+if (user.value) {
+  const { data: FilmFavori, error: ErrorFilmFavori } = await supabase
+    .from('FilmFavori')
+    .select('*')
+    .eq('id_film', UnFilmData!.id)
+    .eq('id_user', user!.value.id)
+    .single()
+  console.log('Erreur film favori', ErrorFilmFavori)
+  if (FilmFavori) {
+    favori.value = true
+  } else {
+    favori.value = false
+  }
+}
+
 function formatYear(dateString: string): number {
   const date = new Date(dateString)
   return date.getFullYear()
+}
+let lock = false
+async function toggleFavori() {
+  if (lock) return
+  console.log('toggle favori et lock')
+  lock = true
+  const { data: FilmFavori, error: ErrorFilmFavori } = await supabase
+    .from('FilmFavori')
+    .select('*')
+    .eq('id_film', UnFilmData!.id)
+    .eq('id_user', user.value!.id)
+    .single()
+  console.log('id film', UnFilmData!.id)
+  console.log('id realtion', FilmFavori?.id)
+  console.log('id usertoggle', user.value!.id)
+  console.log('toogle film favori', FilmFavori)
+  if (FilmFavori?.id) {
+    await supabase.from('FilmFavori').delete().eq('id', FilmFavori!.id)
+    console.log('suppression')
+    lock = false
+  } else {
+    console.log('Ajouter')
+    await supabase.from('FilmFavori').insert([{ id_film: UnFilmData!.id, id_user: user.value!.id }])
+    lock = false
+  }
 }
 </script>
 <template>
@@ -73,8 +116,8 @@ function formatYear(dateString: string): number {
         <p class="font-bold text-xl font-Spline mt-5">{{ UnFilmData!.Note }}/5</p>
       </div>
       <div>
-        <div class="flex justify-end pb-5">
-          <Favori />
+        <div class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
+          <Favori :class="{ 'fill-red-500': favori }" />
         </div>
         <img
           :src="UnFilmData!.url_images ?? undefined"

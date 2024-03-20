@@ -11,6 +11,15 @@ async function Logout() {
     router.push('/')
   }
 }
+const {
+  data: { user }
+} = await supabase.auth.getUser()
+if (user) {
+  const { data: FilmFavori, error: ErrorFilmFavori } = await supabase
+    .from('FilmFavori')
+    .select('*')
+    .eq('id_user', user!.id)
+}
 </script>
 <template>
   <h1>Profil utilisateur</h1>
@@ -20,4 +29,7 @@ async function Logout() {
   >
     Deconnexion
   </button>
+  <h2>Vos Films Favoris</h2>
+  <CarrouselFilmFavoris v-if="FilmFavori" />
+  <p v-else>Vous n'avez pas de films favoris</p>
 </template>
