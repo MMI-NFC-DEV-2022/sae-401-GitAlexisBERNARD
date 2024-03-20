@@ -13,7 +13,7 @@ Bienvenue sur la page du projet pour le cours SAE401. Ce document contient toute
 
 L'URL du site pour accéder au projet est disponible ci-dessous:
 
-- [Accéder au site](URL_DU_SITE)
+- [Accéder au site](https://sae401.alexisbernardev.fr/)
 - [Backup](https://sae401-alexisbernard.netlify.app/)
 
 
