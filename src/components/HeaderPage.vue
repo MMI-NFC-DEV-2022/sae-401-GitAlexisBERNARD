@@ -3,10 +3,10 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { supabase } from '@/supabase'
 import Iconuser from './icons/iconuser.vue'
+import { user } from '@/supabase'
+console.log('user value', user.value)
+
 const activeMenu = ref(false)
-const {
-  data: { user }
-} = await supabase.auth.getUser()
 
 function closeMenu() {
   activeMenu.value = false
@@ -16,10 +16,17 @@ function closeMenu() {
   <header
     class="z-10 flex w-full translate-y-0 items-center justify-between bg-primary-darkbleu px-6 py-2 transition-all duration-300 ease-in-out lg:py-0"
   >
-    <div v-if="!user">
+    <div v-if="user">
+      <RouterLink to="/userprofile"
+        ><img src="/public/images/user.jpg" class="h-10 w-10 rounded-full object-cover"
+      /></RouterLink>
+    </div>
+    <div v-else>
       <RouterLink to="/connexion"><Iconuser class="w-8 h-8 lg:w-12 lg:h-12" /></RouterLink>
     </div>
-    <img src="/public/images/logo.png" alt="logo" class="w-[5%] min-w-8" />
+    <RouterLink to="/" class="flex justify-center">
+      <img src="/public/images/logo.png" alt="logo" class="w-[5%] min-w-8" />
+    </RouterLink>
     <div class="flex items-center gap-4 lg:flex-row-reverse">
       <button
         class="relative z-10 flex h-5 w-8 flex-col justify-between lg:hidden"
@@ -60,7 +67,7 @@ function closeMenu() {
               class="menu-link lg:text-black font-Spline font-normal text-[26px]"
               to="/films"
               @click="closeMenu"
-              >Billetterie</RouterLink
+              >Films</RouterLink
             >
           </li>
           <li>

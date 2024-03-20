@@ -6,6 +6,7 @@ const props = defineProps<{
 const { data: FILM, error } = await supabase
   .from('FILM')
   .select('*')
+  .eq('Nouveauté', true)
   .limit(props.max ?? 100)
 </script>
 <template>
