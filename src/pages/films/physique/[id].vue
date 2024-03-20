@@ -14,9 +14,9 @@ if (ErrorPlatformePhysique) {
 }
 </script>
 <template>
-  <h2>Acheter {{ PlatformePhysique![0]!.FILM!.Titre }}</h2>
-  <ul>
-    <li v-for="nPhysique in PlatformePhysique" :key="nPhysique.id ?? undefined">
+  <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Acheter {{ PlatformePhysique![0]!.FILM!.Titre }}</h2>
+  <ul class="flex flex-col">
+    <li v-for="nPhysique in PlatformePhysique" :key="nPhysique.id ?? undefined" class="flex">
       <img :src="nPhysique.url_images ?? undefined" :alt="nPhysique.NomPhysique ?? undefined" />
       <div>
         <p>{{ nPhysique.NomPhysique }}</p>
