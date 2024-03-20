@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import PlatformeStreaming from '@/components/AfffichagePlatformeStreaming.vue'
+import CarrouselActeurUnFilm from '@/components/CarrouselActeurUnFilm.vue'
+import CarrouselRealisation from '@/components/CarrouselRealisation.vue'
 import { supabase } from '@/supabase'
 const UnFilm = defineProps<{
   id: string
@@ -99,5 +101,7 @@ function formatYear(dateString: string): number {
         <button>Voir toutes les offres</button>
       </RouterLink>
     </div>
+    <CarrouselActeurUnFilm :id_film="UnFilm.id" />
+    <CarrouselRealisation :id_film="UnFilm.id" />
   </div>
 </template>
