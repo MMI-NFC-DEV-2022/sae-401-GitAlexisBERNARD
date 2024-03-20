@@ -11,12 +11,12 @@ const { data: ActeurUnFilm, error: ErrorActeurUnFilm } = await supabase
 console.log(ActeurUnFilm)
 </script>
 <template>
-  <div class="flex w-[100%] overflow-hidden">
-    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth overflow-x-auto">
+  <div class="flex overflow-auto ml-5">
+    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3">
       <li
         v-for="UnActeur in ActeurUnFilm"
         :key="UnActeur.id_acteur ?? undefined"
-        class="snap-start"
+        class="snap-start w-[40vw]"
       >
         <RouterLink
           :to="{

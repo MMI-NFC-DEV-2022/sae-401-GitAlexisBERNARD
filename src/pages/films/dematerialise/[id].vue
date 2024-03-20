@@ -15,19 +15,22 @@ if (ErrorPlatformeStreaming) {
 </script>
 <template>
   <h2>Regarder {{ PlatformeStreaming![0]!.FILM!.Titre }}</h2>
-  <div>
+  <div class="flex flex-col">
     <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme ?? undefined">
       <div v-if="nPlatforme.PLATEFORME">
         <a :href="nPlatforme.url ?? undefined" target="_blank">
-          <div>
+          <div class="flex flex-row">
             <img
+              class="w-14 h-14 rounded-xl"
               :src="nPlatforme.PLATEFORME.ImagePlatforme ?? undefined"
               :alt="nPlatforme.PLATEFORME.NomPlateforme ?? undefined"
             />
-            <div>
-              <p>{{ nPlatforme.PLATEFORME.NomPlateforme }}</p>
-              <p v-if="nPlatforme.prix && nPlatforme.abonnement">Disponible dans l’offre et  à partir de {{nPlatforme.prix}}€</p>
-              <p v-else-if="nPlatforme.prix">Disponible à partir de {{nPlatforme.prix}}€</p>
+            <div class="flex flex-col">
+              <p c>{{ nPlatforme.PLATEFORME.NomPlateforme }}</p>
+              <p v-if="nPlatforme.prix && nPlatforme.abonnement">
+                Disponible dans l’offre et à partir de {{ nPlatforme.prix }}€
+              </p>
+              <p v-else-if="nPlatforme.prix">Disponible à partir de {{ nPlatforme.prix }}€</p>
               <p v-else-if="nPlatforme.abonnement">Disponible dans l’offre</p>
             </div>
           </div>

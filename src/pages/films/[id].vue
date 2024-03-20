@@ -28,7 +28,7 @@ console.log(GenreFilm)
 
 const { data: FilmPhysique, error: ErrorFilmPhysique } = await supabase
   .from('PHYSIQUE')
-  .select(`id,NomPhysique,url_images`)
+  .select(`id,NomPhysique,url_images,url`)
   .eq('id_film', UnFilm.id)
 
 if (ErrorFilmPhysique) {
@@ -96,29 +96,35 @@ function formatYear(dateString: string): number {
           params: { id: UnFilm.id }
         }"
       >
-        <div class="flex justify-center">
+        <div class="flex justify-center mb-7">
           <button class="bg-[#F5C754] font-bold w-[90%] py-3 rounded-xl mt-5">
             Voir toutes les offres
           </button>
         </div>
       </RouterLink>
     </div>
-    <div v-if="FilmPhysique">
-      <h2>Supports</h2>
-      <div>
-        <div v-if="FilmPhysique[0]">
-          <img
-            :src="FilmPhysique![0]!.url_images ?? undefined"
-            :alt="FilmPhysique[0]!.NomPhysique ??  undefined"
-          />
-          <p>{{ FilmPhysique[0]!.NomPhysique }}</p>
+    <div v-if="FilmPhysique" class="bg-[#0E0E0E] text-white py-4">
+      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Supports</h2>
+      <div class="flex flex-row justify-center gap-12">
+        <div v-if="FilmPhysique[0]" class="flex flex-col">
+          <a :href="FilmPhysique![0]!.url ?? undefined">
+            <img
+              class="w-[150px] h-[200px]"
+              :src="FilmPhysique![0]!.url_images ?? undefined"
+              :alt="FilmPhysique[0]!.NomPhysique ??  undefined"
+            />
+            <p>{{ FilmPhysique[0]!.NomPhysique }}</p>
+          </a>
         </div>
-        <div v-if="FilmPhysique[1]">
-          <img
-            :src="FilmPhysique![1]!.url_images ?? undefined"
-            :alt="FilmPhysique[1]!.NomPhysique ??  undefined"
-          />
-          <p>{{ FilmPhysique[1]!.NomPhysique }}</p>
+        <div v-if="FilmPhysique[1]" class="flex flex-col">
+          <a :href="FilmPhysique![1]!.url ?? undefined">
+            <img
+              class="w-[150px] h-[200px]"
+              :src="FilmPhysique![1]!.url_images ?? undefined"
+              :alt="FilmPhysique[1]!.NomPhysique ??  undefined"
+            />
+            <p>{{ FilmPhysique[1]!.NomPhysique }}</p>
+          </a>
         </div>
       </div>
       <RouterLink
@@ -127,12 +133,16 @@ function formatYear(dateString: string): number {
           params: { id: UnFilm.id }
         }"
       >
-          <button class="bg-[#F5C754] font-bold w-[90%] py-3 rounded-xl mt-5">
+        <div class="flex justify-center">
+          <button class="bg-[#F5C754] text-black font-bold w-[90%] py-3 rounded-xl mt-5">
             Voir toutes les offres
           </button>
+        </div>
       </RouterLink>
     </div>
+    <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Acteurs</h2>
     <CarrouselActeurUnFilm :id_film="UnFilm.id" />
+    <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Équipe de production</h2>
     <CarrouselRealisation :id_film="UnFilm.id" />
   </div>
 </template>

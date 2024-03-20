@@ -14,9 +14,9 @@ if (ErrorUnFilmRealisateur) {
 }
 </script>
 <template>
-  <div class="flex w-[100%] overflow-hidden">
-    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth overflow-x-auto">
-      <li v-for="UnFilm in UnFilmRealisateur" :key="UnFilm.id_film ?? undefined" class="snap-start">
+  <div class="flex overflow-auto ml-5">
+    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3">
+      <li v-for="UnFilm in UnFilmRealisateur" :key="UnFilm.id_film ?? undefined" class="snap-start w-[40vw]">
         <RouterLink
           :to="{
             name: 'films-id',
