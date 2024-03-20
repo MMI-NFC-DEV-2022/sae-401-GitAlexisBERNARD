@@ -2,6 +2,8 @@
 import PlatformeStreaming from '@/components/AfffichagePlatformeStreaming.vue'
 import CarrouselActeurUnFilm from '@/components/CarrouselActeurUnFilm.vue'
 import CarrouselRealisation from '@/components/CarrouselRealisation.vue'
+import Clock from '@/components/icons/clock.vue'
+import Favori from '@/components/icons/Favori.vue'
 import { supabase } from '@/supabase'
 const UnFilm = defineProps<{
   id: string
@@ -45,25 +47,48 @@ function formatYear(dateString: string): number {
     <p>{{ ErrorUnFilm.message }}</p>
   </div>
   <div v-else>
-    <div>
-      <div>
-        <h2>{{ UnFilmData!.Titre }}</h2>
-        <p>{{ UnFilmData!.intro }}</p>
-        <p>{{ UnFilmData!.DateSortie ? formatYear(UnFilmData!.DateSortie) : '' }}</p>
-        <p>{{ UnFilmData!.Durée }}</p>
-        <div v-for="ngenre in GenreFilm">{{ ngenre.GENRE!.Nom }}</div>
-        <p>{{ UnFilmData!.Note }}/5</p>
+    <div
+      :style="{
+        'background-repeat': 'no-repeat',
+        'background-image': 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(' + UnFilmData!.bg_image + ')',
+        'background-size': 'cover',
+        'background-position': 'top',
+ 
+    }"
+      class="p-5 flex flex-row justify-between"
+    >
+      <div class="text-white">
+        <h2 class="font-bold font-Spline text-xl">{{ UnFilmData!.Titre }}</h2>
+        <p class="font-normal text-xs font-Spline mt-3">{{ UnFilmData!.intro }}</p>
+        <p class="font-normal text-xs font-Spline mt-2">
+          {{ UnFilmData!.DateSortie ? formatYear(UnFilmData!.DateSortie) : '' }}
+        </p>
+        <div class="flex flex-row items-center mt-2 gap-1">
+          <Clock />
+          <p class="font-normal text-xs font-Spline">{{ UnFilmData!.Durée }}</p>
+        </div>
+        <div v-for="ngenre in GenreFilm" class="font-normal text-xs font-Spline mt-4">
+          {{ ngenre.GENRE!.Nom }}
+        </div>
+        <p class="font-bold text-xl font-Spline mt-5">{{ UnFilmData!.Note }}/5</p>
       </div>
       <div>
-        <img :src="UnFilmData!.url_images ?? undefined" :alt="UnFilmData!.Titre ??  undefined" />
+        <div class="flex justify-end pb-5">
+          <Favori />
+        </div>
+        <img
+          :src="UnFilmData!.url_images ?? undefined"
+          :alt="UnFilmData!.Titre ??  undefined"
+          class="rounded-xl w-[280px] h-[190px]"
+        />
       </div>
     </div>
     <div>
-      <h2>Synopsis</h2>
-      <p>{{ UnFilmData!.Synopsis }}</p>
+      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Synopsis</h2>
+      <p class="font-Spline ml-5 font-normal">{{ UnFilmData!.Synopsis }}</p>
     </div>
     <div>
-      <h2>Où regarder</h2>
+      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Où regarder</h2>
       <PlatformeStreaming :id_film="UnFilm.id" />
       <RouterLink
         :to="{
@@ -71,7 +96,11 @@ function formatYear(dateString: string): number {
           params: { id: UnFilm.id }
         }"
       >
-        <button>Voir toutes les offres</button>
+        <div class="flex justify-center">
+          <button class="bg-[#F5C754] font-bold w-[90%] py-3 rounded-xl mt-5">
+            Voir toutes les offres
+          </button>
+        </div>
       </RouterLink>
     </div>
     <div v-if="FilmPhysique">
@@ -98,7 +127,9 @@ function formatYear(dateString: string): number {
           params: { id: UnFilm.id }
         }"
       >
-        <button>Voir toutes les offres</button>
+          <button class="bg-[#F5C754] font-bold w-[90%] py-3 rounded-xl mt-5">
+            Voir toutes les offres
+          </button>
       </RouterLink>
     </div>
     <CarrouselActeurUnFilm :id_film="UnFilm.id" />
