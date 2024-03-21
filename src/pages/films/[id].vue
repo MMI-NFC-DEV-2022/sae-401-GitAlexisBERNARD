@@ -60,7 +60,6 @@ function formatYear(dateString: string): number {
 }
 let lock = false
 async function toggleFavori() {
-  if (lock) return
   console.log('toggle favori et lock')
   lock = true
   const { data: FilmFavori, error: ErrorFilmFavori } = await supabase
@@ -76,11 +75,9 @@ async function toggleFavori() {
   if (FilmFavori?.id) {
     await supabase.from('FilmFavori').delete().eq('id', FilmFavori!.id)
     console.log('suppression')
-    lock = false
   } else {
     console.log('Ajouter')
     await supabase.from('FilmFavori').insert([{ id_film: UnFilmData!.id, id_user: user.value!.id }])
-    lock = false
   }
 }
 </script>
@@ -116,9 +113,9 @@ async function toggleFavori() {
         <p class="font-bold text-xl font-Spline mt-5">{{ UnFilmData!.Note }}/5</p>
       </div>
       <div>
-        <div class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
+        <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
           <Favori :class="{ 'fill-red-500': favori }" />
-        </div>
+        </button>
         <img
           :src="UnFilmData!.url_images ?? undefined"
           :alt="UnFilmData!.Titre ??  undefined"
