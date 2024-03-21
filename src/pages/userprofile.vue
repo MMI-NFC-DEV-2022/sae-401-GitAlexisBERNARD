@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import CarrouselFilmFavoris from '@/components/CarrouselFilmsFavoris.vue'
 import { supabase } from '@/supabase'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 const router = useRouter()
+const FilmVerif = ref()
 
 async function Logout() {
   const { error } = await supabase.auth.signOut()
@@ -17,8 +20,11 @@ const {
 if (user) {
   const { data: FilmFavori, error: ErrorFilmFavori } = await supabase
     .from('FilmFavori')
-    .select('*')
+    .select('id_film')
     .eq('id_user', user!.id)
+  if (FilmFavori) {
+    FilmVerif.value = FilmFavori
+  }
 }
 </script>
 <template>
@@ -30,6 +36,6 @@ if (user) {
     Deconnexion
   </button>
   <h2>Vos Films Favoris</h2>
-  <CarrouselFilmFavoris v-if="FilmFavori" />
+  <CarrouselFilmFavoris v-if="FilmVerif" />
   <p v-else>Vous n'avez pas de films favoris</p>
 </template>
