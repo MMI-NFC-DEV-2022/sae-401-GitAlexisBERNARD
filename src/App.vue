@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import { Suspense } from 'vue'
+import { onErrorCaptured, Suspense } from 'vue'
 import HeaderPage from './components/HeaderPage.vue'
 import FooterPage from './components/FooterPage.vue'
+onErrorCaptured((error) => {
+  console.error('Erreur globale :', error)
+})
 </script>
 
 <template>
