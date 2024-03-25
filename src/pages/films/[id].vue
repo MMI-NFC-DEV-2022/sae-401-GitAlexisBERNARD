@@ -113,8 +113,8 @@ async function toggleFavori() {
         <p class="font-bold text-xl font-Spline mt-5">{{ UnFilmData!.Note }}/5</p>
       </div>
       <div>
-        <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
-          <Favori :class="{ 'fill-red-500': favori }" />
+        <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori ">
+          <Favori :key="favori" :class="{ 'fill-red-500': favori }" />
         </button>
         <img
           :src="UnFilmData!.url_images ?? undefined"

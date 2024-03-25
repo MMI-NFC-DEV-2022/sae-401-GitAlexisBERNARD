@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { supabase } from '@/supabase'
 import Iconuser from './icons/iconuser.vue'
+import SearchBar from './SearchBar.vue'
 import { user } from '@/supabase'
 console.log('user value', user.value)
 
@@ -16,15 +17,19 @@ function closeMenu() {
   <header
     class="z-10 flex w-full translate-y-0 items-center justify-between bg-primary-darkbleu px-6 py-2 transition-all duration-300 ease-in-out lg:py-0"
   >
-    <div v-if="user">
+    <RouterLink to="/" class="lg:flex justify-center hidden">
+      <img src="/public/images/logo.png" alt="logo" class="w-[5%] min-w-8" />
+    </RouterLink>
+    <div v-if="user" class="lg:hidden block">
       <RouterLink to="/userprofile"
         ><img src="/public/images/user.jpg" class="h-10 w-10 rounded-full object-cover"
       /></RouterLink>
     </div>
-    <div v-else>
+    <div v-else class="lg:hidden block">
       <RouterLink to="/connexion"><Iconuser class="w-8 h-8 lg:w-12 lg:h-12" /></RouterLink>
     </div>
-    <RouterLink to="/" class="flex justify-center">
+    <SearchBar class="hidden lg:block" />
+    <RouterLink to="/" class="flex justify-center lg:hidden">
       <img src="/public/images/logo.png" alt="logo" class="w-[5%] min-w-8" />
     </RouterLink>
     <div class="flex items-center gap-4 lg:flex-row-reverse">
@@ -85,6 +90,30 @@ function closeMenu() {
               @click="closeMenu"
               >Acteurs</RouterLink
             >
+          </li>
+          <li v-if="!user">
+            <RouterLink
+              class="menu-link lg:text-black font-Spline font-normal text-[26px] hidden lg:block ml-16"
+              to="/connexion"
+              @click="closeMenu"
+              >connexion</RouterLink
+            >
+          </li>
+          <li v-if="!user">
+            <RouterLink
+              class="menu-link lg:text-black font-Spline font-normal text-[26px] hidden lg:block px-4 py-2 bg-[#F5C754] rounded-xl"
+              to="/inscription"
+              @click="closeMenu"
+              >inscription</RouterLink
+            >
+          </li>
+          <li v-if="user">
+            <RouterLink
+              class="menu-link lg:text-black font-Spline font-normal text-[26px] hidden lg:block px-4 py-2"
+              to="/userprofile"
+              @click="closeMenu"
+              ><img src="/public/images/user.jpg" class="h-10 w-10 -object-cover"
+            /></RouterLink>
           </li>
         </ul>
       </nav>
