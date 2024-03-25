@@ -14,6 +14,5 @@ const { data } = await supabase.auth.getUser()
 export const user = ref(data.user)
 supabase.auth.onAuthStateChange((evt, session) => {
     console.log("connect avec : ",session);
-    
     user.value = session?.user ?? null
 })
