@@ -16,7 +16,7 @@ console.log(UnFilmActeur)
       <li v-for="UnFilm in UnFilmActeur" :key="UnFilm.id_film ?? undefined" class="snap-start">
         <RouterLink
           :to="{
-            name: 'films-acteur-id',
+            name: 'films-id',
             params: { id: UnFilm.id_film }
           }"
           class="block"
