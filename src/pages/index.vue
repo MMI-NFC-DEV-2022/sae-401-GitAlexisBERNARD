@@ -18,7 +18,7 @@ import CarrouselUtilisateur from '@/components/CarrouselUtilisateur.vue'
         Voir tout les films
       </button>
     </div>
-    <div style="background-image: url(public/images/bgimage.png)" class="h-[200px] py-8 px-6 mt-7">
+    <div style="background-image: url(/images/bgimage.png)" class="h-[200px] py-8 px-6 mt-7">
       <h3 class="font-Spline text-white font-semibold text-xl">
         Rejoins la communauté Dès maintenant
       </h3>

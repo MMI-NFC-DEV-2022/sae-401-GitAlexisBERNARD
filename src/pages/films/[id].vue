@@ -116,11 +116,11 @@ async function toggleFavori() {
         <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
           <Favori :key="favori" :class="{ 'fill-red-500': favori }" />
         </button>
-        <img
+        <!-- <img
           :src="UnFilmData!.url_images ?? undefined"
           :alt="UnFilmData!.Titre ??  undefined"
           class="rounded-xl w-[280px] h-[190px] lg:w-full lg:h-auto lg:max-h-96"
-        />
+        /> -->
       </div>
     </div>
     <div>

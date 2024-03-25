@@ -26,7 +26,7 @@ console.log(FilmsUser)
       <li v-for="(nFilms, index) in FilmsUser" :key="index">
         <RouterLink
           :to="{
-            name: 'films-data',
+            name: 'films-data-data',
             params: { data: JSON.stringify(nFilms) }
           }"
         >
