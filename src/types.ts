@@ -171,6 +171,62 @@ export type Database = {
         }
         Relationships: []
       }
+      FILM_Utilisateur: {
+        Row: {
+          bg_image: string | null
+          created_at: string
+          DateSortie: string | null
+          Durée: string | null
+          id: number
+          id_user: string | null
+          intro: string | null
+          LangueOriginale: string | null
+          Note: number | null
+          Nouveauté: boolean | null
+          Synopsis: string | null
+          Titre: string | null
+          url_images: string | null
+        }
+        Insert: {
+          bg_image?: string | null
+          created_at?: string
+          DateSortie?: string | null
+          Durée?: string | null
+          id?: number
+          id_user?: string | null
+          intro?: string | null
+          LangueOriginale?: string | null
+          Note?: number | null
+          Nouveauté?: boolean | null
+          Synopsis?: string | null
+          Titre?: string | null
+          url_images?: string | null
+        }
+        Update: {
+          bg_image?: string | null
+          created_at?: string
+          DateSortie?: string | null
+          Durée?: string | null
+          id?: number
+          id_user?: string | null
+          intro?: string | null
+          LangueOriginale?: string | null
+          Note?: number | null
+          Nouveauté?: boolean | null
+          Synopsis?: string | null
+          Titre?: string | null
+          url_images?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_FILM_Utilisateur_id_user_fkey"
+            columns: ["id_user"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       FilmActeur: {
         Row: {
           created_at: string
@@ -239,6 +295,42 @@ export type Database = {
             columns: ["id_film"]
             isOneToOne: false
             referencedRelation: "FILM"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      FilmFavori: {
+        Row: {
+          created_at: string
+          id: number
+          id_film: number | null
+          id_user: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          id_film?: number | null
+          id_user?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          id_film?: number | null
+          id_user?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_FilmFavori_id_film_fkey"
+            columns: ["id_film"]
+            isOneToOne: false
+            referencedRelation: "FILM"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "public_FilmFavori_id_user_fkey"
+            columns: ["id_user"]
+            isOneToOne: false
+            referencedRelation: "users"
             referencedColumns: ["id"]
           },
         ]
@@ -371,6 +463,38 @@ export type Database = {
           Nom?: string | null
         }
         Relationships: []
+      }
+      InfoUsers: {
+        Row: {
+          created_at: string
+          id: number
+          Id_user: string | null
+          ImagUser: string | null
+          Pseudo: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          Id_user?: string | null
+          ImagUser?: string | null
+          Pseudo?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          Id_user?: string | null
+          ImagUser?: string | null
+          Pseudo?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "public_InfoUsers_Id_user_fkey"
+            columns: ["Id_user"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       PHYSIQUE: {
         Row: {

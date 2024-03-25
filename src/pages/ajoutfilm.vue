@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { supabase, user } from '@/supabase'
+import { supabase, user } from '../supabase'
+import type { Database } from '../types';
 import { useRouter } from 'vue-router'
-import type { Film } from '@/types'
 const router = useRouter()
-const props = defineProps<{ data?: Film; id?: string }>()
-const UnFilmCreation = ref<Film>(props.data ?? {})
+const props = defineProps<{ data?: Database['public']['Tables']['FILM_Utilisateur']['Insert']; id?: string }>()
+const UnFilmCreation = ref<Database['public']['Tables']['FILM_Utilisateur']['Insert']>(props.data ?? {})
 UnFilmCreation.value.url_images = 'https://guuceasiqcompvnghbwl.supabase.co/storage/v1/object/sign/sae401/readyplayeroncover.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzYWU0MDEvcmVhZHlwbGF5ZXJvbmNvdmVyLmpwZyIsImlhdCI6MTcxMDg0MDEwMiwiZXhwIjoxNzEzNDMyMTAyfQ.CUGoGfVX_V7JrK_TyPcS4x3E5ZlYf1MPX_E3pH5FuQk&t=2024-03-19T09%3A21%3A52.097Z'
 UnFilmCreation.value.bg_image = "https://guuceasiqcompvnghbwl.supabase.co/storage/v1/object/sign/sae401/Film/bgready.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzYWU0MDEvRmlsbS9iZ3JlYWR5LmpwZWciLCJpYXQiOjE3MTA5NDE2NjQsImV4cCI6MzMyMTU0MDU2NjR9.Xs42hQCPeW9wsLres0L_cpqkRIzz5qW-LGaIt0oCGDU&t=2024-03-20T13%3A34%3A36.001Z"
 UnFilmCreation.value.id_user = user.value?.id

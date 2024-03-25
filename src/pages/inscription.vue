@@ -9,16 +9,16 @@ const email = ref('')
 const password = ref('')
 const password2 = ref('')
 
-async function signInWithGithub() {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'github'
-  })
-  if (error) {
-    alert(error.message)
-  } else {
-    router.push('/dashboard')
-  }
-}
+// async function signInWithGithub() {
+//   const { data, error } = await supabase.auth.signInWithOAuth({
+//     provider: 'github'
+//   })
+//   if (error) {
+//     alert(error.message)
+//   } else {
+//     router.push('/dashboard')
+//   }
+// }
 async function signOut() {
   const { error } = await supabase.auth.signOut()
   if (error) {
@@ -32,7 +32,7 @@ const register = async () => {
     alert('Les mots de passe ne correspondent pas.')
     return
   }
-  const { user, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email: email.value,
     password: password.value
   })

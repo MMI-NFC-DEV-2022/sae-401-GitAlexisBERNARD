@@ -4,9 +4,8 @@ const props = defineProps<{
   max?: number
 }>()
 const { data: FILM, error } = await supabase
-  .from('FILM')
+  .from('FILM_Utilisateur')
   .select('*')
-  .eq('Nouveauté', true)
   .limit(props.max ?? 100)
 </script>
 <template>

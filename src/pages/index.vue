@@ -3,13 +3,14 @@ import CarrouselAllFilms from '@/components/CarrouselAllFilms.vue'
 import Tags from '@/components/tags.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import CarrouselNouveaute from '@/components/CarrouselNouveaute.vue'
+import CarrouselUtilisateur from '@/components/CarrouselUtilisateur.vue'
 </script>
 <template>
   <body class="ml-[20pxx]">
     <SearchBar class="lg:hidden block" />
     <Tags />
     <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4 lg:text-[32px]">Les films du moment</h2>
-    <CarrouselAllFilms />
+    <CarrouselAllFilms :max="3"/>
     <div class="flex justify-end">
       <button
         class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
@@ -31,12 +32,23 @@ import CarrouselNouveaute from '@/components/CarrouselNouveaute.vue'
     </div>
     <div>
       <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Nouveauté</h2>
-      <CarrouselNouveaute />
+      <CarrouselNouveaute :max="3"/>
       <div class="flex justify-end">
         <button
           class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
         >
           Voir tout les nouveautés
+        </button>
+      </div>
+    </div>
+        <div>
+      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Films Ajoutés par les utilisateurs</h2>
+      <CarrouselUtilisateur :max="3"/>
+      <div class="flex justify-end">
+        <button
+          class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
+        >
+          Voir tout les des utilisateurs
         </button>
       </div>
     </div>

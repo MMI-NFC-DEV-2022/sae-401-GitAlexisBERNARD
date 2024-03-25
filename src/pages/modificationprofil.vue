@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { user, supabase } from '../supabase'
-import { FormKit } from '@formkit/vue'
-import { useRouter } from 'vue-router'
+// <!-- import { ref } from 'vue'
+// import { user, supabase } from '../supabase'
+// import { FormKit } from '@formkit/vue'
+// import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const pseudo = ref('')
-const photo = ref<File | null>(null);
+// const router = useRouter()
+// const pseudo = ref('')
+// const photo = ref<File | null>(null);
 
-async function update() {
-  const { data, error } = await supabase
-    .from('users')
-    .update({
-      Pseudo: pseudo.value,
-      ImagUser: photo.value
-    })
-    .eq('id_user', user.value?.id)
-  if (error) {
-    alert(error.message)
-  } else {
-    router.push('/')
-  }
-}
+// async function update() {
+//   const { data, error } = await supabase
+//     .from('users')
+//     .update({
+//       Pseudo: pseudo.value,
+//       ImagUser: photo.value
+//     })
+//     .eq('id_user', user.value?.id)
+//   if (error) {
+//     alert(error.message)
+//   } else {
+//     router.push('/')
+//   }
+// }
 </script>
 <template>
-  <div class="flex flex-col items-center justify-center min-h-[80vh] p-4">
+  <!-- <div class="flex flex-col items-center justify-center min-h-[80vh] p-4">
     <h2 class="mt-[30px] ml-[20px] font-Spline font-semibold text-[25px]">Inscription</h2>
     <form
       class="w-full max-w-xs bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -46,7 +46,6 @@ async function update() {
         }"
       />
       <FormKit
-        v-model="photo"
         type="file"
         placeholder="Ajouter une photo de profil"
         accept=".jpg .png .webp .jpeg"
@@ -60,5 +59,5 @@ async function update() {
         Appliquer les modifications
       </button>
     </form>
-  </div>
-</template>
+  </div> -->
+</template> 

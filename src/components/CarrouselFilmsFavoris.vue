@@ -20,7 +20,7 @@ console.log('Film favori', FilmFavori)
 <template>
   <div class="flex overflow-auto ml-5">
     <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3">
-      <li v-for="nFILM in FilmFavori" :key="index" class="snap-start w-[40vw]">
+      <li v-for="(nFILM, index) in FilmFavori" :key="index" class="snap-start w-[40vw]">
         <RouterLink
           :to="{
             name: 'films-id',
@@ -28,8 +28,9 @@ console.log('Film favori', FilmFavori)
           }"
           class="block"
         >
-          <img :src="nFILM.FILM.url_images ?? ''" alt="nFILM.Titre" class="rounded-xl" />
-          <p class="font-Spline font-medium text-center text-[16px]">{{ nFILM.FILM.Titre }}</p>
+        
+          <img v-if="nFILM.FILM?.url_images" :src="nFILM.FILM.url_images" alt="nFILM.Titre" class="rounded-xl" />
+          <p class="font-Spline font-medium text-center text-[16px]">{{ nFILM.FILM?.Titre }}</p>
         </RouterLink>
       </li>
     </ul>

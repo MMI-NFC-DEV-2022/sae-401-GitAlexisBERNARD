@@ -2,7 +2,7 @@
 import PlatformeStreaming from '@/components/AfffichagePlatformeStreaming.vue'
 import CarrouselActeurUnFilm from '@/components/CarrouselActeurUnFilm.vue'
 import CarrouselRealisation from '@/components/CarrouselRealisation.vue'
-import Clock from '@/components/icons/clock.vue'
+import Clock from '@/components/icons/Clock.vue'
 import Favori from '@/components/icons/Favori.vue'
 import { supabase, user } from '@/supabase'
 import { ref } from 'vue'
