@@ -10,7 +10,7 @@ import CarrouselUtilisateur from '@/components/CarrouselUtilisateur.vue'
     <SearchBar class="lg:hidden block" />
     <Tags />
     <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4 lg:text-[32px]">Les films du moment</h2>
-    <CarrouselAllFilms :max="3"/>
+    <CarrouselAllFilms :max="3" />
     <div class="flex justify-end">
       <button
         class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
@@ -32,7 +32,7 @@ import CarrouselUtilisateur from '@/components/CarrouselUtilisateur.vue'
     </div>
     <div>
       <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Nouveauté</h2>
-      <CarrouselNouveaute :max="3"/>
+      <CarrouselNouveaute :max="3" />
       <div class="flex justify-end">
         <button
           class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
@@ -41,9 +41,11 @@ import CarrouselUtilisateur from '@/components/CarrouselUtilisateur.vue'
         </button>
       </div>
     </div>
-        <div>
-      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Films Ajoutés par les utilisateurs</h2>
-      <CarrouselUtilisateur :max="3"/>
+    <div>
+      <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">
+        Films Ajoutés par les utilisateurs
+      </h2>
+      <CarrouselUtilisateur :max="3" />
       <div class="flex justify-end">
         <button
           class="font-Spline font-bold text-xs px-6 py-3 rounded-xl bg-[#E3E8F2] mt-[30px] mr-[20px]"
