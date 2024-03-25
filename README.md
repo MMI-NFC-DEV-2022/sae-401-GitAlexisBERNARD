@@ -32,10 +32,6 @@ Le design et les maquettes du projet ont été réalisés sur Figma. Vous pouvez
 
 Cette section liste toutes les fonctionnalités principales du projet avec des liens directs vers le site web pour une démonstration en direct et le code source sur GitHub pour les détails techniques.
 
-## Fonctionnalités du Projet
-
-Le site web a été conçu pour offrir une plateforme d'affichage d'informations sur les films, permettant aux utilisateurs de naviguer, de découvrir, et d'interagir avec une base de données riche en contenus cinématographiques. Voici un aperçu des principales fonctionnalités :
-
 ### Affichage des Films
 
 - **Carousel Mobile et Grid Desktop :** Présentation des films sous forme de carousel sur mobile et en grille sur desktop, affichant tous les films de la base de données
@@ -45,8 +41,16 @@ Le site web a été conçu pour offrir une plateforme d'affichage d'informations
 
 - **Films Nouveautés et Créations Utilisateurs :** Un carousel distinct met en avant les films étiquetés comme nouveautés et les films créés par les utilisateurs.
   base de données
+
   - [Démonstration](https://sae401.alexisbernardev.fr/)
   - [Code Source](https://github.com/MMI-NFC-DEV-2022/sae-401-GitAlexisBERNARD/blob/main/src/pages/index.vue)
+
+  - **Button Genre :** En haut de la pages les boutons de genres sont affiche en fonction de la base de données et renvoi vers la page d'un genre qui affiche la page des films avec le genre
+
+  - [Démonstration](https://sae401.alexisbernardev.fr/)
+  - [Code Source](https://github.com/MMI-NFC-DEV-2022/sae-401-GitAlexisBERNARD/blob/main/src/pages/index.vue)
+  - [Démonstration page d'un genre](https://sae401.alexisbernardev.fr/films/genre/1)
+  - [Code Source page d'un genre](https://github.com/MMI-NFC-DEV-2022/sae-401-GitAlexisBERNARD/blob/main/src/pages/films/genre/%5Bid%5D.vue)
 
 ### Découverte et Gestion des Films
 
@@ -88,4 +92,3 @@ Le site web a été conçu pour offrir une plateforme d'affichage d'informations
   - [Code Source](https://github.com/MMI-NFC-DEV-2022/sae-401-GitAlexisBERNARD/blob/main/src/pages/userprofile.vue)
 
 **Note Importante :** Un problème connu est l'absence de rechargement automatique pour l'indication des films mis en favoris, et les limitations liées à la gestion des images utilisateur.
-
