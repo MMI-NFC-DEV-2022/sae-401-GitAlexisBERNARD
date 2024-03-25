@@ -11,12 +11,12 @@ const { data: PlatformeStreaming, error: ErrorPlatformeStreaming } = await supab
 console.log(PlatformeStreaming)
 </script>
 <template>
-  <div class="flex flex-row gap-5 justify-center">
+  <div class="flex flex-row gap-5 lg:ml-5 lg:justify-start justify-center">
     <div v-for="nPlatforme in PlatformeStreaming" :key="nPlatforme.id_platforme ?? undefined">
       <div v-if="nPlatforme.PLATEFORME">
         <a :href="nPlatforme.url ?? undefined" target="_blank">
           <img
-            class="w-12 h-12 rounded-xl"
+            class="w-12 h-12 lg:w-20 lg:h-20 rounded-xl max-w-48"
             :src="nPlatforme.PLATEFORME!.ImagePlatforme ?? undefined"
             :alt="nPlatforme.PLATEFORME!.NomPlateforme ?? undefined"
           />

@@ -35,7 +35,7 @@ console.log(ScenariserUnFilm)
           <img
             :src="UnRealisateur.STAR!.url_images ?? undefined"
             :alt="UnRealisateur.FILM!.Titre ?? undefined"
-            class="rounded-xl"
+            class="rounded-xl max-w-48"
           />
           <p class="font-Spline font-medium text-center text-[16px]">
             {{ UnRealisateur.STAR!.Nom }} {{ UnRealisateur.STAR!.Prenom }}
@@ -45,7 +45,7 @@ console.log(ScenariserUnFilm)
       <li
         v-for="UnScenariste in ScenariserUnFilm"
         :key="UnScenariste.id_scenariste ?? undefined"
-        class="snap-start"
+        class="snap-start flex flex-col items-center gap-2"
       >
         <RouterLink
           :to="{
@@ -57,7 +57,7 @@ console.log(ScenariserUnFilm)
           <img
             :src="UnScenariste.STAR!.url_images ?? undefined"
             :alt="UnScenariste.FILM!.Titre ?? undefined"
-            class="rounded-xl"
+            class="rounded-xl max-w-48"
           />
           <p class="font-Spline font-medium text-center text-[16px]">
             {{ UnScenariste.STAR!.Nom }} {{ UnScenariste.STAR!.Prenom }}

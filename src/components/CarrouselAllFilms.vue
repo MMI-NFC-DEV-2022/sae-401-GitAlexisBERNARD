@@ -10,8 +10,10 @@ const { data: FILM, error } = await supabase
 </script>
 <template>
   <div class="flex overflow-auto ml-5">
-    <ul class="flex items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3">
-      <li v-for="(nFILM, index) in FILM" :key="index" class="snap-start w-[40vw]">
+    <ul
+      class="lg:flex-wrap flex lg:justify-center items-center flex-nowrap snap-x snap-mandatory scroll-smooth gap-3"
+    >
+      <li v-for="(nFILM, index) in FILM" :key="index" class="snap-start w-[40vw] lg:w-1/4">
         <RouterLink
           :to="{
             name: 'films-id',

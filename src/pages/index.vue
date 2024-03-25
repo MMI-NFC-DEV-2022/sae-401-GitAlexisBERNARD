@@ -6,9 +6,9 @@ import CarrouselNouveaute from '@/components/CarrouselNouveaute.vue'
 </script>
 <template>
   <body class="ml-[20pxx]">
-    <SearchBar />
+    <SearchBar class="lg:hidden block" />
     <Tags />
-    <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Les films du moment</h2>
+    <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4 lg:text-[32px]">Les films du moment</h2>
     <CarrouselAllFilms />
     <div class="flex justify-end">
       <button

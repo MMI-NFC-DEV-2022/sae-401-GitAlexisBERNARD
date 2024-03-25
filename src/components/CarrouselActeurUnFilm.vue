@@ -16,7 +16,7 @@ console.log(ActeurUnFilm)
       <li
         v-for="UnActeur in ActeurUnFilm"
         :key="UnActeur.id_acteur ?? undefined"
-        class="snap-start w-[40vw] rounded-xl"
+        class="snap-start rounded-xl first-letter flex flex-col items-center gap-2"
       >
         <RouterLink
           :to="{
@@ -28,7 +28,7 @@ console.log(ActeurUnFilm)
           <img
             :src="UnActeur.STAR!.url_images ?? undefined"
             :alt="UnActeur.FILM!.Titre ?? undefined"
-            class="rounded-xl"
+            class="rounded-xl max-w-48"
           />
           <p class="font-Spline font-medium text-center text-[16px]">
             {{ UnActeur.STAR!.Nom }} {{ UnActeur.STAR!.Prenom }}

@@ -29,12 +29,19 @@ if (user) {
 </script>
 <template>
   <h1>Profil utilisateur</h1>
+  <RouterLink to="/ajoutfilm">
+    <button
+      class="bg-[#F5C754] hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline w-full"
+    >
+      Ajout Film
+    </button>
+  </RouterLink>
   <RouterLink to="/modificationprofil">
-  <button
-    class="bg-[#272727] hover:bg-slate-900 mb-2 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline w-full"
-  >
-    Modification Profil
-  </button>
+    <button
+      class="bg-[#272727] hover:bg-slate-900 mb-2 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline w-full"
+    >
+      Modification Profil
+    </button>
   </RouterLink>
   <button
     @click="Logout()"
@@ -42,7 +49,7 @@ if (user) {
   >
     Deconnexion
   </button>
-  
+
   <h2>Vos Films Favoris</h2>
   <CarrouselFilmFavoris v-if="FilmVerif" />
   <p v-else>Vous n'avez pas de films favoris</p>

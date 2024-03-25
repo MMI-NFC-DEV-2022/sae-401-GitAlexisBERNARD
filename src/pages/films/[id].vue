@@ -83,8 +83,8 @@ async function toggleFavori() {
 </script>
 <template>
   <div v-if="ErrorUnFilm">
-    <h1>Film non trouvé</h1>
-    <p>{{ ErrorUnFilm.message }}</p>
+    <h1 class="lg:text-3xl">Film non trouvé</h1>
+    <p class="lg:text-base">{{ ErrorUnFilm.message }}</p>
   </div>
   <div v-else>
     <div
@@ -98,28 +98,28 @@ async function toggleFavori() {
       class="p-5 flex flex-row justify-between"
     >
       <div class="text-white">
-        <h2 class="font-bold font-Spline text-xl">{{ UnFilmData!.Titre }}</h2>
-        <p class="font-normal text-xs font-Spline mt-3">{{ UnFilmData!.intro }}</p>
-        <p class="font-normal text-xs font-Spline mt-2">
+        <h2 class="font-bold font-Spline text-xl lg:text-3xl">{{ UnFilmData!.Titre }}</h2>
+        <p class="font-normal text-xs font-Spline mt-3 lg:text-base">{{ UnFilmData!.intro }}</p>
+        <p class="font-normal text-xs font-Spline mt-2 lg:text-base">
           {{ UnFilmData!.DateSortie ? formatYear(UnFilmData!.DateSortie) : '' }}
         </p>
         <div class="flex flex-row items-center mt-2 gap-1">
           <Clock />
-          <p class="font-normal text-xs font-Spline">{{ UnFilmData!.Durée }}</p>
+          <p class="font-normal text-xs font-Spline lg:text-base">{{ UnFilmData!.Durée }}</p>
         </div>
-        <div v-for="ngenre in GenreFilm" class="font-normal text-xs font-Spline mt-4">
+        <div v-for="ngenre in GenreFilm" class="font-normal text-xs font-Spline mt-4 lg:text-base">
           {{ ngenre.GENRE!.Nom }}
         </div>
-        <p class="font-bold text-xl font-Spline mt-5">{{ UnFilmData!.Note }}/5</p>
+        <p class="font-bold text-xl font-Spline mt-5 lg:text-3xl">{{ UnFilmData!.Note }}/5</p>
       </div>
       <div>
-        <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori ">
+        <button class="flex justify-end pb-5" v-if="user" @click="toggleFavori">
           <Favori :key="favori" :class="{ 'fill-red-500': favori }" />
         </button>
         <img
           :src="UnFilmData!.url_images ?? undefined"
           :alt="UnFilmData!.Titre ??  undefined"
-          class="rounded-xl w-[280px] h-[190px]"
+          class="rounded-xl w-[280px] h-[190px] lg:w-full lg:h-auto lg:max-h-96"
         />
       </div>
     </div>
@@ -136,16 +136,16 @@ async function toggleFavori() {
           params: { id: UnFilm.id }
         }"
       >
-        <div class="flex justify-center mb-7">
-          <button class="bg-[#F5C754] font-bold w-[90%] py-3 rounded-xl mt-5">
+        <div class="flex lg:justify-start lg:ml-5 justify-center mb-7">
+          <button class="bg-[#F5C754] font-bold w-[90%] lg:w-[10%] py-3 rounded-xl mt-5">
             Voir toutes les offres
           </button>
         </div>
       </RouterLink>
     </div>
-    <div v-if="FilmPhysique" class="bg-[#0E0E0E] text-white py-4">
+    <div v-if="FilmPhysique" class="bg-[#0E0E0E] text-white lg:text-black lg:bg-white py-4">
       <h2 class="font-bold font-Spline ml-5 text-xl mt-6 mb-4">Supports</h2>
-      <div class="flex flex-row justify-center gap-12">
+      <div class="flex flex-row lg:justify-start ml-9 justify-center gap-12">
         <div v-if="FilmPhysique[0]" class="flex flex-col">
           <a :href="FilmPhysique![0]!.url ?? undefined">
             <img
