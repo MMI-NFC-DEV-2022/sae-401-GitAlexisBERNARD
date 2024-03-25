@@ -6,22 +6,22 @@ import { ref } from 'vue'
 const props = defineProps<{
   max?: number
 }>()
-const FilmsUser = ref()
+let FilmsUser
 if (user.value?.id) {
-  const { data: FilmsUser } = await supabase
+  const { data } = await supabase
     .from('FILM_Utilisateur')
     .select('*')
     .eq('id_user', user.value.id)
-    .limit(props.max ?? 100);
-    console.log(user?.value.id)
-    console.log(FilmsUser)
+    .limit(props.max ?? 100)
+  FilmsUser = data
+  console.log(user?.value.id)
 }
-
+console.log(FilmsUser)
 </script>
 
 <template>
-  <div class="pl-5">
-    <h1>liste des Films crée par l'utilsiateur connecté:</h1>
+  <div class="pl-5" v-if="user?.id">
+    <h1>liste des Films crée par l'utilisateur connecté:</h1>
     <ul class="flex flex-col gap-2 p-2">
       <li v-for="(nFilms, index) in FilmsUser" :key="index">
         <RouterLink
@@ -35,5 +35,8 @@ if (user.value?.id) {
         </RouterLink>
       </li>
     </ul>
+  </div>
+  <div v-else>
+    <h1>Vous devez être connecté pour voir vos films</h1>
   </div>
 </template>

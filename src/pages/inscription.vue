@@ -101,6 +101,16 @@ const register = async () => {
         Inscription
       </button>
     </form>
+    <div v-else>
+      Vous etes deja connecté
+      <RouterLink to="/">
+      <button
+        type="submit"
+        class="bg-[#F5C754] hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline w-full"
+      >
+        Retour à l'accueil
+      </button>
+      </RouterLink>
+    </div>
   </div>
 </template>
-
